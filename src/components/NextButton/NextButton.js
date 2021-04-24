@@ -39,7 +39,7 @@ export default function NextButton({title, disabled}) {
   return (
     <SafeAreaView >
       <TouchableOpacity
-        onPress={() => console.log("Pressed")}
+        onPress={() => console.log("Next Page")}
         disabled={disabled}
       >
         <Text style={disabled ? styles.DisabledButton : styles.EnableButton}>{title}</Text>
