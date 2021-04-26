@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { StyleSheet, Text, SafeAreaView, TouchableOpacity, Image } from 'react-native';
+import ArrowRightIcon from "../../assets/icons/arrow-right-icon.svg";
 
 const styles = StyleSheet.create({
   ButtonWrapper: {
@@ -20,9 +21,7 @@ export default function ActionButtonPick({label}) {
     <SafeAreaView >
         <TouchableOpacity style={styles.ButtonWrapper}>
             <Text style={styles.Pick}>{label}</Text>
-            <Image 
-              source={require('../../assets/icons/arrow-right-icon.png')}
-            />
+            <ArrowRightIcon />
         </TouchableOpacity>
     </SafeAreaView>
   );

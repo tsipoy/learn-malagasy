@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { StyleSheet, Text, SafeAreaView, TouchableOpacity, Image } from 'react-native';
+import CorrectIcon from "../../assets/icons/correct-icon.svg"
 
 const styles = StyleSheet.create({
   ButtonWrapper: {
@@ -21,9 +22,7 @@ export default function ActionButtonCorrect({label}) {
     <SafeAreaView >
         <TouchableOpacity style={styles.ButtonWrapper}>
             <Text style={styles.Correct}>{label}</Text>
-            <Image 
-              source={require('../../assets/icons/correct-icon.png')}
-            />
+            <CorrectIcon />
         </TouchableOpacity>
     </SafeAreaView>
   );

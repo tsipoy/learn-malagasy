@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { StyleSheet, Text, SafeAreaView, TouchableOpacity, Image } from 'react-native';
 
-// import { wrongIcon } from "../../assets/icons/wrong-icon.svg";
+import WrongIcon from "../../assets/icons/wrong-icon.svg";
 
 const styles = StyleSheet.create({
   ButtonWrapper: {
@@ -23,9 +23,7 @@ export default function ActionButtonWrong({label}) {
     <SafeAreaView >
         <TouchableOpacity style={styles.ButtonWrapper}>
             <Text style={styles.Wrong}>{label}</Text>
-            <Image 
-              source={require('../../assets/icons/wrong-icon.png')}
-            />
+            <WrongIcon />
         </TouchableOpacity>
     </SafeAreaView>
   );
