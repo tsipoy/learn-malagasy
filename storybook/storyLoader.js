@@ -9,6 +9,7 @@ function loadStories() {
   require('../src/components/InputTextarea/PhraseTextarea.stories');
   require('../src/components/LanguageSwitcherButton/LanguageSwitcherButton.stories');
   require('../src/components/NextButton/NextButton.stories');
+  require('../src/components/SectionHeading/Sectionheading.stories');
   require('../src/components/ToolButton/ToolButton.stories');
   require('./stories/Button/Button.stories');
   require('./stories/Welcome/Welcome.stories');
@@ -20,6 +21,7 @@ const stories = [
   '../src/components/InputTextarea/PhraseTextarea.stories',
   '../src/components/LanguageSwitcherButton/LanguageSwitcherButton.stories',
   '../src/components/NextButton/NextButton.stories',
+  '../src/components/SectionHeading/Sectionheading.stories',
   '../src/components/ToolButton/ToolButton.stories',
   './stories/Button/Button.stories',
   './stories/Welcome/Welcome.stories',
