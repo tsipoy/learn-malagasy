@@ -14,29 +14,36 @@ import BackIcon from '../../assets/icons/back-icon.svg';
 import NightModeIcon from '../../assets/icons/night-mode-icon.svg';
 
 const styles = StyleSheet.create({
-  IconWrapper: {
+  AddIconWrapper: {
     backgroundColor: '#06B6D4',
     borderRadius: 50,
-    padding: 13,
+    padding: 24,
+    margin: 20,
+  },
+  NightModeIconWrapper: {
+    backgroundColor: '#06B6D4',
+    borderRadius: 100,
+    padding: 16,
+    margin: 20,
   },
 });
 
 export default function ToolButton() {
   return (
     <SafeAreaView>
-      <TouchableOpacity style={styles.IconWrapper}>
+      <TouchableOpacity style={styles.AddIconWrapper}>
         <AddIcon />
       </TouchableOpacity>
-      <TouchableOpacity style={styles.IconWrapper}>
+      <TouchableOpacity>
         <PickIcon />
       </TouchableOpacity>
-      <TouchableOpacity style={styles.IconWrapper}>
+      <TouchableOpacity>
         <LearnedIcon />
       </TouchableOpacity>
-      <TouchableOpacity style={styles.IconWrapper}>
+      <TouchableOpacity>
         <BackIcon />
       </TouchableOpacity>
-      <TouchableOpacity style={styles.IconWrapper}>
+      <TouchableOpacity style={styles.NightModeIconWrapper}>
         <NightModeIcon />
       </TouchableOpacity>
     </SafeAreaView>
