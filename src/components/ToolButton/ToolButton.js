@@ -42,10 +42,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#06B6D4',
     alignItems: 'center',
     borderRadius: 50,
-    paddingTop: 18,
-    paddingBottom: 18,
-    paddingEnd: 18,
-    paddingStart: 18,
+    padding: 18,
     marginBottom: 20,
   },
   NightModeIconWrapper: {
