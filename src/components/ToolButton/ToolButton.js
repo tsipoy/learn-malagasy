@@ -16,34 +16,73 @@ import NightModeIcon from '../../assets/icons/night-mode-icon.svg';
 const styles = StyleSheet.create({
   AddIconWrapper: {
     backgroundColor: '#06B6D4',
+    alignItems: 'center',
     borderRadius: 50,
-    padding: 24,
-    margin: 20,
+    paddingTop: 16,
+    paddingBottom: 16,
+    marginBottom: 20,
+  },
+  PickIconWrapper: {
+    backgroundColor: '#06B6D4',
+    alignItems: 'center',
+    borderRadius: 50,
+    paddingTop: 18,
+    paddingBottom: 18,
+    marginBottom: 20,
+  },
+  LearnedIconWrapper: {
+    backgroundColor: '#06B6D4',
+    alignItems: 'center',
+    borderRadius: 50,
+    paddingTop: 16,
+    paddingBottom: 16,
+    marginBottom: 20,
+  },
+  BackIconWrapper: {
+    backgroundColor: '#06B6D4',
+    alignItems: 'center',
+    borderRadius: 50,
+    paddingTop: 18,
+    paddingBottom: 18,
+    paddingEnd: 18,
+    paddingStart: 18,
+    marginBottom: 20,
   },
   NightModeIconWrapper: {
     backgroundColor: '#06B6D4',
-    borderRadius: 100,
-    padding: 16,
-    margin: 20,
+    alignItems: 'center',
+    borderRadius: 50,
+    padding: 13,
+    marginBottom: 20,
   },
 });
 
 export default function ToolButton() {
   return (
     <SafeAreaView>
-      <TouchableOpacity style={styles.AddIconWrapper}>
+      <TouchableOpacity
+        style={styles.AddIconWrapper}
+        onPress={() => alert('Do something')}>
         <AddIcon />
       </TouchableOpacity>
-      <TouchableOpacity>
+      <TouchableOpacity
+        style={styles.PickIconWrapper}
+        onPress={() => alert('Do something')}>
         <PickIcon />
       </TouchableOpacity>
-      <TouchableOpacity>
+      <TouchableOpacity
+        style={styles.LearnedIconWrapper}
+        onPress={() => alert('Do something')}>
         <LearnedIcon />
       </TouchableOpacity>
-      <TouchableOpacity>
+      <TouchableOpacity
+        style={styles.BackIconWrapper}
+        onPress={() => alert('Do something')}>
         <BackIcon />
       </TouchableOpacity>
-      <TouchableOpacity style={styles.NightModeIconWrapper}>
+      <TouchableOpacity
+        style={styles.NightModeIconWrapper}
+        onPress={() => alert('Do something')}>
         <NightModeIcon />
       </TouchableOpacity>
     </SafeAreaView>
