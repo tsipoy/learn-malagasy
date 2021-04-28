@@ -35,7 +35,7 @@ export default function ListItem({label, text}) {
     <SafeAreaView>
       <TouchableOpacity
         style={styles.ListWrapper}
-        onPress={() => alert('Go to list')}>
+        onPress={() => alert('Go to a new page')}>
         <Text style={styles.ListLabel}>{text}</Text>
         <View style={styles.LearnButtonWrapper}>
           <Text style={styles.LearnText}>{label}</Text>
