@@ -4,13 +4,16 @@ import {
   SafeAreaView,
   Text,
   TouchableOpacity,
-  View,
+  FlatList,
 } from 'react-native';
 
 import SectionHeading from '../SectionHeading/SectionHeading';
 import ListItem from '../ListItem/ListItem';
 
 const styles = StyleSheet.create({
+  ListWrapper: {
+    marginTop: 15,
+  },
   CategoryWrapper: {
     backgroundColor: '#ffffff',
     flexDirection: 'row',
@@ -18,7 +21,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingEnd: 16,
     paddingStart: 16,
-    // marginTop: 15,
     borderColor: '#E5E5E5',
     borderWidth: 1,
   },
@@ -30,37 +32,52 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function List({label, text, category}) {
-  const [categoriesList, SetCategories] = React.useState([
-    'All',
-    'Food',
-    'Greetings',
-    'At the restaurant',
-    'An unncessessarly loooong cat... ',
-    'Single Words',
-    'At the market',
-  ]);
-
-  const lists = categoriesList.map(list => {
-    return (
-      <TouchableOpacity
-        style={styles.CategoryWrapper}
-        onPress={() => alert('Go to a new page')}>
-        <Text style={styles.CategoryStyle}>{list}</Text>
-        <ListItem label={label} />
-      </TouchableOpacity>
-    );
-  });
+export default function List({label, text}) {
   return (
     <SafeAreaView>
       <SectionHeading text={text} />
-      <View>{lists}</View>
-      {/* <TouchableOpacity
-        style={styles.CategoryWrapper}
-        onPress={() => alert('Go to a new page')}>
-        <Text style={styles.CategoryStyle}>{category}</Text>
-        <ListItem label={label} />
-      </TouchableOpacity> */}
+      <FlatList
+        style={styles.ListWrapper}
+        data={[
+          {
+            key: '01',
+            category: 'All',
+          },
+          {
+            key: '02',
+            category: 'Food',
+          },
+          {
+            key: '03',
+            category: 'Greetings',
+          },
+          {
+            key: '04',
+            category: 'At the restaurant',
+          },
+          {
+            key: '05',
+            category: 'An unncessessarly loooong cat... ',
+          },
+          {
+            key: '06',
+            category: 'Single Words',
+          },
+          {
+            key: '07',
+            category: 'At the market',
+          },
+        ]}
+        renderItem={({item}) => (
+          <TouchableOpacity
+            keyExtractor={(item, index) => item.key}
+            style={styles.CategoryWrapper}
+            onPress={() => alert('Go to a new page')}>
+            <Text style={styles.CategoryStyle}>{item.category}</Text>
+            <ListItem label={label} />
+          </TouchableOpacity>
+        )}
+      />
     </SafeAreaView>
   );
 }
