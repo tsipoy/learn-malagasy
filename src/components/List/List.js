@@ -5,10 +5,14 @@ import {
   Text,
   TouchableOpacity,
   FlatList,
+  ScrollView,
+  View,
 } from 'react-native';
 
 import SectionHeading from '../SectionHeading/SectionHeading';
 import ListItem from '../ListItem/ListItem';
+
+import data from '../../data/categories.json';
 
 const styles = StyleSheet.create({
   ListWrapper: {
@@ -33,51 +37,22 @@ const styles = StyleSheet.create({
 });
 
 export default function List({label, text}) {
+  let n;
+  const mappedData = data.categories.map(item => (
+    <TouchableOpacity
+      key={item.id}
+      style={styles.CategoryWrapper}
+      onPress={() => alert('Go to a new page')}>
+      <Text style={styles.CategoryStyle} key={item.id}>
+        {item.name.en}
+      </Text>
+      <ListItem label={label} />
+    </TouchableOpacity>
+  ));
   return (
     <SafeAreaView>
       <SectionHeading text={text} />
-      <FlatList
-        style={styles.ListWrapper}
-        data={[
-          {
-            key: '01',
-            category: 'All',
-          },
-          {
-            key: '02',
-            category: 'Food',
-          },
-          {
-            key: '03',
-            category: 'Greetings',
-          },
-          {
-            key: '04',
-            category: 'At the restaurant',
-          },
-          {
-            key: '05',
-            category: 'An unncessessarly loooong cat... ',
-          },
-          {
-            key: '06',
-            category: 'Single Words',
-          },
-          {
-            key: '07',
-            category: 'At the market',
-          },
-        ]}
-        renderItem={({item}) => (
-          <TouchableOpacity
-            keyExtractor={(item, index) => item.key}
-            style={styles.CategoryWrapper}
-            onPress={() => alert('Go to a new page')}>
-            <Text style={styles.CategoryStyle}>{item.category}</Text>
-            <ListItem label={label} />
-          </TouchableOpacity>
-        )}
-      />
+      <ScrollView style={styles.ListWrapper}>{mappedData}</ScrollView>
     </SafeAreaView>
   );
 }
