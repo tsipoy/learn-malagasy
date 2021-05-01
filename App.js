@@ -26,6 +26,11 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+// import Navigation from './src/navigation/index';
+import Homepage from './src/screens/Homepage';
+
+import {enableScreens} from 'react-native-screens';
+
 const Section = ({children, title}): Node => {
   const isDarkMode = useColorScheme() === 'dark';
   return (
@@ -53,6 +58,7 @@ const Section = ({children, title}): Node => {
 };
 
 const App: () => Node = () => {
+  enableScreens();
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
@@ -61,7 +67,7 @@ const App: () => Node = () => {
 
   return (
     <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+      {/* <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
@@ -69,12 +75,13 @@ const App: () => Node = () => {
         <View
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.js</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
+          }}> */}
+      {/* <Section title="Step One">
+        Edit <Text style={styles.highlight}>App.js</Text> to change this //
+        screen and then come back to see your edits. */}
+      <Homepage />
+      {/* </Section> */}
+      {/* <Section title="See Your Changes">
             <ReloadInstructions />
           </Section>
           <Section title="Debug">
@@ -84,8 +91,8 @@ const App: () => Node = () => {
             Read the docs to discover what to do next:
           </Section>
           <LearnMoreLinks />
-        </View>
-      </ScrollView>
+        </View> */}
+      {/* </ScrollView> */}
     </SafeAreaView>
   );
 };
