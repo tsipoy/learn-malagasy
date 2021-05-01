@@ -2,18 +2,18 @@ import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
 
-import Homepage from '../screens/Homepage';
+import LearningPage from '../screens/LearningPage';
 
 const Stack = createStackNavigator();
 
-const HomeScreenStack = () => {
+const ScreenStack = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name={'HomepageScreen'} component={Homepage} />
+        <Stack.Screen name={'Learning'} component={LearningPage} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 };
 
-export default HomeScreenStack;
+export default ScreenStack;

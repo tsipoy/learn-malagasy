@@ -8,6 +8,8 @@ import {
   View,
 } from 'react-native';
 
+import {useNavigation} from '@react-navigation/native';
+
 import LanguageSwitcherButton from '../components/LanguageSwitcherButton/LanguageSwitcherButton';
 import ListItem from '../components/ListItem/ListItem';
 import categoriesData from '../data/categories.json';
@@ -46,12 +48,6 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
     paddingBottom: 56,
-  },
-  IconInnerWrapper: {
-    // backgroundColor: '#06B6D4',
-    // alignItems: 'center'
-    // borderRadius: 50,
-    // marginEnd: 10,
   },
   AddIconStyle: {
     backgroundColor: '#06B6D4',
@@ -105,9 +101,13 @@ const styles = StyleSheet.create({
 });
 
 function Homepage() {
+  const navigation = useNavigation();
+
   const listCategories = categoriesData.categories.map(category => (
     <TouchableOpacity
-      onPress={() => alert('EJi')}
+      onPress={() => {
+        navigation.navigate('Learning');
+      }}
       key={category.id}
       style={styles.ListWrapper}>
       <Text style={styles.CategoryStyle}>{category.name.en}</Text>
