@@ -11,7 +11,7 @@ import {
 function LearningPage() {
   return (
     <SafeAreaView>
-      <Tex>Learn</Tex>
+      <Text>Learn</Text>
     </SafeAreaView>
   );
 }

@@ -8,7 +8,9 @@ import {
   View,
 } from 'react-native';
 
-import {useNavigation} from '@react-navigation/native';
+// import {useNavigation} from '@react-navigation/native';
+// import {enableScreens} from 'react-native-screens';
+// import LearningPage from '../screens/LearningPage';
 
 import LanguageSwitcherButton from '../components/LanguageSwitcherButton/LanguageSwitcherButton';
 import ListItem from '../components/ListItem/ListItem';
@@ -100,8 +102,9 @@ const styles = StyleSheet.create({
   },
 });
 
-function Homepage() {
-  const navigation = useNavigation();
+function Homepage({navigation}) {
+  // const navigation = useNavigation();
+  // enableScreens();
 
   const listCategories = categoriesData.categories.map(category => (
     <TouchableOpacity
