@@ -11,8 +11,16 @@ const ScreenStack = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name={'Home'} component={HomeScreen} />
-        <Stack.Screen name={'Learning'} component={LearningPage} />
+        <Stack.Screen
+          name={'Home'}
+          component={HomeScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name={'Learning'}
+          component={LearningPage}
+          options={{headerShown: false}}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

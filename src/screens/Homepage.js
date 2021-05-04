@@ -2,15 +2,12 @@ import * as React from 'react';
 import {
   StyleSheet,
   SafeAreaView,
-  Text,
   ScrollView,
   TouchableOpacity,
   View,
+  Text,
+  TextInput,
 } from 'react-native';
-
-// import {useNavigation} from '@react-navigation/native';
-// import {enableScreens} from 'react-native-screens';
-// import LearningPage from '../screens/LearningPage';
 
 import LanguageSwitcherButton from '../components/LanguageSwitcherButton/LanguageSwitcherButton';
 import ListItem from '../components/ListItem/ListItem';
@@ -19,6 +16,7 @@ import AddIcon from '../assets/icons/add-icon.svg';
 import LearnedIcon from '../assets/icons/learned-icon.svg';
 import PickIcon from '../assets/icons/pick-icon.svg';
 import NightModeIcon from '../assets/icons/night-mode-icon.svg';
+import {ContextProvider} from '../Context';
 
 const styles = StyleSheet.create({
   MainContainer: {
@@ -29,6 +27,7 @@ const styles = StyleSheet.create({
   },
   SelectHeading: {
     fontSize: 18,
+    fontWeight: 'bold',
     lineHeight: 22,
     color: '#111827',
     paddingBottom: 15,
@@ -103,13 +102,18 @@ const styles = StyleSheet.create({
 });
 
 function Homepage({navigation}) {
-  // const navigation = useNavigation();
-  // enableScreens();
+  const currentCategoriesData = categoriesData.categories.map(
+    categoryId => categoryId,
+  );
 
   const listCategories = categoriesData.categories.map(category => (
     <TouchableOpacity
+      title={category.name.en}
       onPress={() => {
-        navigation.navigate('Learning');
+        navigation.navigate('Learning', {
+          categoriesId: category,
+          theCurrentCategoriesData: currentCategoriesData,
+        });
       }}
       key={category.id}
       style={styles.ListWrapper}>
@@ -124,21 +128,29 @@ function Homepage({navigation}) {
   return (
     <SafeAreaView style={styles.MainContainer}>
       <View style={styles.IconWrapper}>
-        <View style={styles.AddIconStyle}>
+        <TouchableOpacity
+          onPress={() => alert('On press')}
+          style={styles.AddIconStyle}>
           <AddIcon />
-        </View>
-        <View style>
+        </TouchableOpacity>
+        <TouchableOpacity style>
           <LanguageSwitcherButton />
-        </View>
-        <View style={styles.PickIconStyle}>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => alert('On press')}
+          style={styles.PickIconStyle}>
           <PickIcon />
-        </View>
-        <View style={styles.LearnedIconStyle}>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => alert('On press')}
+          style={styles.LearnedIconStyle}>
           <LearnedIcon />
-        </View>
-        <View style={styles.NightModeIconStyle}>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => alert('On press')}
+          style={styles.NightModeIconStyle}>
           <NightModeIcon />
-        </View>
+        </TouchableOpacity>
       </View>
       <Text style={styles.SelectHeading}>Select a category: </Text>
       <ScrollView style={styles.CategoryListWrapper}>
