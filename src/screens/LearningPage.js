@@ -12,7 +12,6 @@ import LanguageSwitcherButton from '../components/LanguageSwitcherButton/Languag
 import BackIcon from '../assets/icons/back-icon.svg';
 import NightModeIcon from '../assets/icons/night-mode-icon.svg';
 import ListItem from '../components/ListItem/ListItem';
-import NextButton from '../components/NextButton/NextButton';
 
 const styles = StyleSheet.create({
   MainContainer: {
@@ -128,10 +127,14 @@ function LearningPage({route, navigation}) {
   const [showNextButton, setShowNextButton] = React.useState(false);
   const {categories} = route.params;
   const {phrases} = route.params;
-  // const {categoriesId} = route.params;
 
-  // const idCategory = categoriesId.map(categoryId => categoryId.phrasesIds);
-  // console.log(idCategory[0]);
+  const idCategory = categories.map(categoryId => categoryId.phrasesIds);
+  console.log(idCategory);
+
+  // const findingId = phrases.filter(
+  //   phrase => (phrase.id = idCategory.includes(idCategory)),
+  // );
+  // console.log(findingId);
 
   const categoryName = categories.map(nameCategory => (
     <Text style={styles.CategoryStyle} key={nameCategory.id}>
@@ -162,8 +165,6 @@ function LearningPage({route, navigation}) {
   const handleNextButton = () => {
     setShowNextButton(true);
   };
-
-  // <NextButton onPress={() => getRandomOptions()} />
 
   React.useEffect(() => {
     getRandomOptions();

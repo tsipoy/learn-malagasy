@@ -6,7 +6,6 @@ import {
   TouchableOpacity,
   View,
   Text,
-  TextInput,
 } from 'react-native';
 
 import LanguageSwitcherButton from '../components/LanguageSwitcherButton/LanguageSwitcherButton';
@@ -104,7 +103,6 @@ const styles = StyleSheet.create({
 
 function Homepage({navigation}) {
   const phrases = phrasesData.phrases.map(phrase => phrase);
-  const categoryData = categoriesData.categories.map(category => category);
 
   const listCategories = categoriesData.categories.map(category => (
     <TouchableOpacity
@@ -112,7 +110,6 @@ function Homepage({navigation}) {
       onPress={() => {
         navigation.navigate('Learning', {
           categories: [category],
-          categoriesId: categoryData,
           phrases: phrases,
         });
       }}
