@@ -26,11 +26,9 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-// import Navigation from './src/navigation/index';
 import Homepage from './src/screens/Homepage';
 
 import {enableScreens} from 'react-native-screens';
-import {ContextProvider} from './src/Context';
 
 const Section = ({children, title}): Node => {
   const isDarkMode = useColorScheme() === 'dark';

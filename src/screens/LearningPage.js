@@ -6,11 +6,11 @@ import {
   ScrollView,
   TouchableOpacity,
   View,
+  TextInput,
 } from 'react-native';
 import LanguageSwitcherButton from '../components/LanguageSwitcherButton/LanguageSwitcherButton';
 import BackIcon from '../assets/icons/back-icon.svg';
 import NightModeIcon from '../assets/icons/night-mode-icon.svg';
-import InputTextarea from '../components/InputTextarea/PhraseTextarea';
 import ListItem from '../components/ListItem/ListItem';
 
 const styles = StyleSheet.create({
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     borderColor: '#E5E5E5',
     borderWidth: 1,
   },
-  TextareaWrapper: {
+  TextareaContainer: {
     paddingBottom: 37,
   },
   PickWrapper: {
@@ -79,10 +79,96 @@ const styles = StyleSheet.create({
     lineHeight: 19,
     color: '#06B6D4',
   },
+  SolutionsStyle: {
+    fontSize: 16,
+    lineHeight: 19,
+  },
+  TextareaWrapper: {
+    height: 100,
+    marginVertical: 0,
+    marginHorizontal: 'auto',
+    backgroundColor: '#fff',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderStyle: 'solid',
+    borderColor: '#E5E5E5',
+    borderWidth: 1,
+  },
+  TextareaStyle: {
+    color: '#111827',
+    maxWidth: 360,
+    marginHorizontal: 'auto',
+    fontSize: 20,
+    lineHeight: 24.3,
+  },
+  ShowNextButton: {
+    // justifyContent: 'center',
+    alignItems: 'center',
+    paddingTop: 60,
+  },
+  NextButtonStyle: {
+    fontSize: 16,
+    lineHeight: 19,
+    textAlign: 'center',
+    backgroundColor: '#06B6D4',
+    paddingTop: 11,
+    paddingBottom: 10,
+    paddingEnd: 31,
+    paddingStart: 27,
+    maxWidth: 90,
+    borderRadius: 50,
+    borderWidth: 1,
+    borderColor: '#06B6D4',
+  },
 });
 
 function LearningPage({route, navigation}) {
-  const {categoriesId} = route.params;
+  const [randomOptions, setRandomOptions] = React.useState([]);
+  const [showNextButton, setShowNextButton] = React.useState(false);
+  const {categories} = route.params;
+  const {phrases} = route.params;
+
+  const idCategory = categories.map(categoryId => categoryId.phrasesIds);
+  console.log(idCategory);
+
+  // const findingId = phrases.filter(
+  //   phrase => (phrase.id = idCategory.includes(idCategory)),
+  // );
+  // console.log(findingId);
+
+  const categoryName = categories.map(nameCategory => (
+    <Text style={styles.CategoryStyle} key={nameCategory.id}>
+      {nameCategory.name.en}
+    </Text>
+  ));
+
+  const randomPhrases =
+    phrases[Math.floor(Math.random() * phrases.length)].name;
+  const randomFirstSolutions =
+    phrases[Math.floor(Math.random() * phrases.length)].name;
+  const randomSecondSolutions = randomPhrases;
+  const randomThirdSolutions =
+    phrases[Math.floor(Math.random() * phrases.length)].name;
+  const randomFourthSolutions =
+    phrases[Math.floor(Math.random() * phrases.length)].name;
+
+  function getRandomOptions() {
+    const randomOption = {
+      randomFirstSolutions,
+      randomSecondSolutions,
+      randomThirdSolutions,
+      randomFourthSolutions,
+    };
+    setRandomOptions(randomOption);
+  }
+
+  const handleNextButton = () => {
+    setShowNextButton(true);
+  };
+
+  React.useEffect(() => {
+    getRandomOptions();
+  }, [categories]);
 
   return (
     <SafeAreaView style={styles.MainContainer}>
@@ -105,23 +191,77 @@ function LearningPage({route, navigation}) {
         <View>
           <Text style={styles.TitleStyle}>
             Category:
-            <Text style={styles.CategoryStyle}> {categoriesId.name.en}</Text>
+            <Text> {categoryName}</Text>
           </Text>
         </View>
-        <View style={styles.TextareaWrapper}>
+        <View style={styles.TextareaContainer}>
           <Text style={styles.TitleStyle}>The phrase: </Text>
-          <InputTextarea editable={false} />
+          <View style={styles.TextareaWrapper}>
+            <TextInput
+              style={styles.TextareaStyle}
+              editable={false}
+              value={randomPhrases.mg}
+              multiline={true}
+            />
+          </View>
         </View>
         <View>
           <Text style={styles.TitleStyle}>Pick a solution: </Text>
-          <TouchableOpacity
-            style={styles.ListItemWrapper}
-            onPress={() => alert('Picked')}>
-            <View style={styles.PickWrapper}>
-              <Text style={styles.PickText}>Pick</Text>
-              <ListItem />
-            </View>
-          </TouchableOpacity>
+          <View>
+            <TouchableOpacity
+              style={styles.ListItemWrapper}
+              onPress={() => handleNextButton()}>
+              <Text style={styles.SolutionsStyle}>
+                {randomFirstSolutions.en}
+              </Text>
+              <View style={styles.PickWrapper}>
+                <Text style={styles.PickText}>Pick</Text>
+                <ListItem />
+              </View>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.ListItemWrapper}
+              onPress={() => handleNextButton()}>
+              <Text style={styles.SolutionsStyle}>
+                {randomSecondSolutions.en}
+              </Text>
+              <View style={styles.PickWrapper}>
+                <Text style={styles.PickText}>Pick</Text>
+                <ListItem />
+              </View>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.ListItemWrapper}
+              onPress={() => handleNextButton()}>
+              <Text style={styles.SolutionsStyle}>
+                {randomThirdSolutions.en}
+              </Text>
+              <View style={styles.PickWrapper}>
+                <Text style={styles.PickText}>Pick</Text>
+                <ListItem />
+              </View>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.ListItemWrapper}
+              onPress={() => handleNextButton()}>
+              <Text style={styles.SolutionsStyle}>
+                {randomFourthSolutions.en}
+              </Text>
+              <View style={styles.PickWrapper}>
+                <Text style={styles.PickText}>Pick</Text>
+                <ListItem />
+              </View>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.ShowNextButton}>
+            {showNextButton && (
+              <TouchableOpacity
+                style={styles.NextButtonStyle}
+                onPress={() => getRandomOptions()}>
+                <Text style={{color: '#ffffff'}}>Next</Text>
+              </TouchableOpacity>
+            )}
+          </View>
         </View>
       </ScrollView>
     </SafeAreaView>

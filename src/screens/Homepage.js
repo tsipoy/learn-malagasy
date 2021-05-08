@@ -6,7 +6,6 @@ import {
   TouchableOpacity,
   View,
   Text,
-  TextInput,
 } from 'react-native';
 
 import LanguageSwitcherButton from '../components/LanguageSwitcherButton/LanguageSwitcherButton';
@@ -16,7 +15,8 @@ import AddIcon from '../assets/icons/add-icon.svg';
 import LearnedIcon from '../assets/icons/learned-icon.svg';
 import PickIcon from '../assets/icons/pick-icon.svg';
 import NightModeIcon from '../assets/icons/night-mode-icon.svg';
-import {ContextProvider} from '../Context';
+
+import phrasesData from '../data/phrases.json';
 
 const styles = StyleSheet.create({
   MainContainer: {
@@ -102,17 +102,15 @@ const styles = StyleSheet.create({
 });
 
 function Homepage({navigation}) {
-  const currentCategoriesData = categoriesData.categories.map(
-    categoryId => categoryId,
-  );
+  const phrases = phrasesData.phrases.map(phrase => phrase);
 
   const listCategories = categoriesData.categories.map(category => (
     <TouchableOpacity
       title={category.name.en}
       onPress={() => {
         navigation.navigate('Learning', {
-          categoriesId: category,
-          theCurrentCategoriesData: currentCategoriesData,
+          categories: [category],
+          phrases: phrases,
         });
       }}
       key={category.id}
