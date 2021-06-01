@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
+// What about the other variants?
 import ActionLearnButton from '../ActionButton/ActionLearnButton';
 
 const styles = StyleSheet.create({

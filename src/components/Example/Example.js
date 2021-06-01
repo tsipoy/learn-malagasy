@@ -4,7 +4,7 @@ import { Text, SafeAreaView } from 'react-native';
 // import { styles } from '../constants/globalStyles';
 
 export default function Example({label}) {
-
+  // should be removed
   console.log(label);
   return (
     <SafeAreaView >

@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 
 const styles = StyleSheet.create({
+  // There are lots of duplications here, consider merging styles
   EnableButton: {
     fontSize: 16,
     lineHeight: 19,
@@ -41,6 +42,7 @@ const styles = StyleSheet.create({
 });
 
 export default function NextButton({title, disabled}) {
+  // What happens on press should be a prop as well
   return (
     <SafeAreaView>
       <TouchableOpacity

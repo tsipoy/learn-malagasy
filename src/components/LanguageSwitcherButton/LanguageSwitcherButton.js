@@ -34,6 +34,7 @@ const styles = StyleSheet.create({
   },
 });
 export default function LanguageSwitcherButton() {
+  // the languages should be passed as props (aks: does the component need to know that the languages are English and Malagasy)
   return (
     <SafeAreaView style={styles.Container}>
       <TouchableOpacity
