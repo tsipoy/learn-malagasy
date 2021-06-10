@@ -18,6 +18,7 @@ import NightModeIcon from '../assets/icons/night-mode-icon.svg';
 
 import phrasesData from '../data/phrases.json';
 
+// Most of these styles should be in the components, not the home screen. This makes your code really messy
 const styles = StyleSheet.create({
   MainContainer: {
     paddingEnd: 23,
@@ -150,6 +151,7 @@ function Homepage({navigation}) {
           <NightModeIcon />
         </TouchableOpacity>
       </View>
+      {/* Why don't you use the section heading component here? */}
       <Text style={styles.SelectHeading}>Select a category: </Text>
       <ScrollView style={styles.CategoryListWrapper}>
         {listCategories}

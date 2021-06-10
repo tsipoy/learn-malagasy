@@ -55,6 +55,8 @@ const styles = StyleSheet.create({
 });
 
 export default function ToolButton() {
+  // The tool button component should only ever return one button which is dependent on the props passed to the function, not five buttons. The variant and onPress should be props
+  // It appears you don't even use this component in your home and learning screen. Why not? That is why we built the components first.
   return (
     <SafeAreaView>
       <TouchableOpacity

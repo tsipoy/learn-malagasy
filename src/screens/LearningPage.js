@@ -141,7 +141,7 @@ function LearningPage({route, navigation}) {
       {nameCategory.name.en}
     </Text>
   ));
-
+// This is not really random, the correct solution will always be in the second position and there is a chance of having duplicates.
   const randomPhrases =
     phrases[Math.floor(Math.random() * phrases.length)].name;
   const randomFirstSolutions =
@@ -208,6 +208,7 @@ function LearningPage({route, navigation}) {
         <View>
           <Text style={styles.TitleStyle}>Pick a solution: </Text>
           <View>
+            {/* This should be the list item component. The way you use it below can easily lead to bugs as the component expects two props(label and text) but gets nothing. In typescript, this would not work (which is good)*/}
             <TouchableOpacity
               style={styles.ListItemWrapper}
               onPress={() => handleNextButton()}>
@@ -254,7 +255,8 @@ function LearningPage({route, navigation}) {
             </TouchableOpacity>
           </View>
           <View style={styles.ShowNextButton}>
-            {showNextButton && (
+            {// Why are you not using the next button component?
+              showNextButton && (
               <TouchableOpacity
                 style={styles.NextButtonStyle}
                 onPress={() => getRandomOptions()}>

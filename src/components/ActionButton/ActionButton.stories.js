@@ -3,6 +3,7 @@ import { View } from 'react-native';
 
 import { storiesOf } from '@storybook/react-native';
 
+// The action button should handle all its variants in one component as they are similiar enough. 
 import ActionLearnButton from './ActionLearnButton';
 import ActionButtonPick from "./ActionButtonPick";
 import ActionButtonCorrect from "./ActionButtonCorrect";

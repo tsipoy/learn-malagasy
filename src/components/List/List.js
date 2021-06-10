@@ -37,7 +37,8 @@ const styles = StyleSheet.create({
 });
 
 export default function List({label, text}) {
-  let n;
+  let n; // ?
+  // The list should turn any array of values it is given into a list, not just categories. If we want to make it reusable, make the component less specific and more controlled, a.k.a. pass everything important as props 
   const mappedData = data.categories.map(item => (
     <TouchableOpacity
       key={item.id}
